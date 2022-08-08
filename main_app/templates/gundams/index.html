@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Gundam List</h1>
+
+{% for gundam in gundams %}
+  <div class="card">
+    <div class="card-content">
+      <span class="card-title">{{ gundam.name }}</span>
+      <p>Type: {{ gundam.type }}</p>
+      <p>Description: {{ gundam.description }}</p>
+      {% if gundam.age > 0 %}
+        <p>Age: {{ gundam.age }}</p>
+      {% else %}
+        <p>Age: Mobile Suit</p>
+      {% endif %}
+    </div>
+  </div>
+{% endfor %}
+
+{% endblock %}
