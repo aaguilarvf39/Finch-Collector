@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Gundam
 
 # Create your views here.
@@ -21,4 +21,13 @@ def gundams_detail(request, gundam_id):
 class GundamCreate(CreateView):
   model = Gundam
   fields = '__all__'
+  success_url = '/gundams/'
+
+class GundamUpdate(UpdateView):
+  model = Gundam
+  # Let's disallow the renaming of a gundam by excluding the name field!
+  fields = ['skill', 'description', 'year']
+
+class GundamDelete(DeleteView):
+  model = Gundam
   success_url = '/gundams/'

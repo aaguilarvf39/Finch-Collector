@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Destroy Gundam</h1>
+
+  <h4>Are you sure you want to destroy <span class="red-text">{{ object.name }}</span>?</h4>
+
+  <form action="" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="Yes - Delete!" class="btn">
+    <a href="{% url 'detail' gundam.id %}">Cancel</a>
+  </form>
+{% endblock %}

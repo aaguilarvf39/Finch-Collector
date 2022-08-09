@@ -14,6 +14,10 @@
       <p>Year: Mobile Suit</p>
     {% endif %}
   </div>
+  <div class="card-action">
+    <a href="{% url 'gundams_update' gundam.id %}">Edit</a>
+    <a href="{% url 'gundams_delete' gundam.id %}">Delete</a>
+  </divgundams
 </div>
 
 {% endblock %}
