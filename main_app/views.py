@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views.generic.edit import CreateView
 from .models import Gundam
 
 # Create your views here.
@@ -16,3 +17,8 @@ def gundams_index(request):
 def gundams_detail(request, gundam_id):
    gundam = Gundam.objects.get(id=gundam_id)
    return render(request, 'gundams/detail.html', { 'gundam': gundam })
+
+class GundamCreate(CreateView):
+  model = Gundam
+  fields = '__all__'
+  success_url = '/gundams/'
