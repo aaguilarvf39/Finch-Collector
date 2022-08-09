@@ -7,12 +7,12 @@
   <div class="card">
     <div class="card-content">
       <span class="card-title">{{ gundam.name }}</span>
-      <p>Type: {{ gundam.type }}</p>
+      <p>Skill: {{ gundam.skill }}</p>
       <p>Description: {{ gundam.description }}</p>
-      {% if gundam.age > 0 %}
-        <p>Age: {{ gundam.age }}</p>
+      {% if gundam.year > 0 %}
+        <p>Year: {{ gundam.year }}</p>
       {% else %}
-        <p>Age: Mobile Suit</p>
+        <p>Year: Mobile Suit</p>
       {% endif %}
     </div>
   </div>
