@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Gundam Details</h1>
+
+<div class="card">
+  <div class="card-content">
+    <span class="card-title">{{ gundam.name }}</span>
+    <p>Skill: {{ gundam.skill }}</p>
+    <p>Description: {{ gundam.description|linebreaks }}</p>
+    {% if gundam.year > 0 %}
+      <p>Year: {{ gundam.year }}</p>
+    {% else %}
+      <p>Year: Mobile Suit</p>
+    {% endif %}
+  </div>
+</div>
+
+{% endblock %}
