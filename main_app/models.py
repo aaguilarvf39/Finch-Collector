@@ -12,7 +12,7 @@ COMPONENTS = (
 
 class Weapon(models.Model):
   name = models.CharField(max_length=60)
-  color = models.CharField(max_length=20)
+  info = models.CharField(max_length=100)
 
   def __str__(self):
     return self.name

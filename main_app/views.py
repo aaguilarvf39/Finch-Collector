@@ -58,7 +58,7 @@ class WeaponCreate(CreateView):
 
 class WeaponUpdate(UpdateView):
   model = Weapon
-  fields = ['name', 'color']
+  fields = ['name', 'info']
 
 class WeaponDelete(DeleteView):
   model = Weapon
