@@ -18,9 +18,11 @@ def gundams_index(request):
 
 def gundams_detail(request, gundam_id):
    gundam = Gundam.objects.get(id=gundam_id)
+   id_list = gundam.weapons.all().values_list('id')
+   weapons_gundam_doesnt_have = Weapon.objects.exclude(id__in=id_list)
    repair_form = RepairsForm()
    return render(request, 'gundams/detail.html', {
-     'gundam': gundam, 'repair_form': repair_form 
+     'gundam': gundam, 'repair_form': repair_form, 'weapons': weapons_gundam_doesnt_have
     })
 
 class GundamCreate(CreateView):

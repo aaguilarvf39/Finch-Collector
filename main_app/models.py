@@ -25,6 +25,7 @@ class Gundam(models.Model):
     skill = models.CharField(max_length=50)
     description = models.TextField(max_length=250)
     year = models.IntegerField()
+    weapons = models.ManyToManyField(Weapon)
 
     def __str__(self):
         return self.name
