@@ -10,4 +10,9 @@ urlpatterns = [
   path('gundams/<int:pk>/update/', views.GundamUpdate.as_view(), name='gundams_update'),
   path('gundams/<int:pk>/delete/', views.GundamDelete.as_view(), name='gundams_delete'),
   path('gundams/<int:gundam_id>/add_repair/', views.add_repair, name='add_repair'),
+  path('weapons/', views.WeaponList.as_view(), name='weapons_index'),
+  path('weapons/<int:pk>/', views.WeaponDetail.as_view(), name='weapons_detail'),
+  path('weapons/create/', views.WeaponCreate.as_view(), name='weapons_create'),
+  path('weapons/<int:pk>/update/', views.WeaponUpdate.as_view(), name='weapons_update'),
+  path('weapons/<int:pk>/delete/', views.WeaponDelete.as_view(), name='weapons_delete'),
 ]

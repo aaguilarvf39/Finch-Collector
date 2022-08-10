@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import Gundam
+from django.views.generic import ListView, DetailView
+from .models import Gundam, Weapon
 from .forms import RepairsForm
 
 # Create your views here.
@@ -45,3 +46,20 @@ def add_repair(request, gundam_id):
     new_repair.save()
   return redirect('detail', gundam_id=gundam_id)
 
+class WeaponList(ListView):
+  model = Weapon
+
+class WeaponDetail(DetailView):
+  model = Weapon
+
+class WeaponCreate(CreateView):
+  model = Weapon
+  fields = '__all__'
+
+class WeaponUpdate(UpdateView):
+  model = Weapon
+  fields = ['name', 'color']
+
+class WeaponDelete(DeleteView):
+  model = Weapon
+  success_url = '/weapons/'
