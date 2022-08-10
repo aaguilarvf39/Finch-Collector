@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Gundam
 from .forms import RepairsForm
@@ -35,3 +35,13 @@ class GundamUpdate(UpdateView):
 class GundamDelete(DeleteView):
   model = Gundam
   success_url = '/gundams/'
+
+def add_repair(request, gundam_id):
+  form = RepairsForm(request.POST)
+  # validate the form
+  if form.is_valid():
+    new_repair = form.save(commit=False)
+    new_repair.gundam_id = gundam_id
+    new_repair.save()
+  return redirect('detail', gundam_id=gundam_id)
+
