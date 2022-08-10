@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Gundam
+from .forms import RepairsForm
 
 # Create your views here.
 def home(request):
@@ -16,7 +17,10 @@ def gundams_index(request):
 
 def gundams_detail(request, gundam_id):
    gundam = Gundam.objects.get(id=gundam_id)
-   return render(request, 'gundams/detail.html', { 'gundam': gundam })
+   repair_form = RepairsForm()
+   return render(request, 'gundams/detail.html', {
+     'gundam': gundam, 'repair_form': repair_form 
+    })
 
 class GundamCreate(CreateView):
   model = Gundam
