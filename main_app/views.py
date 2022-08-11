@@ -53,7 +53,7 @@ def add_repair(request, gundam_id):
 
 def assoc_weapon(request, gundam_id, weapon_id):
   gundam = Gundam.objects.get(id=gundam_id)
-  Gundam.weapons.add(weapon_id)
+  gundam.weapons.add(weapon_id)
   return redirect('detail', gundam_id=gundam_id)
 
 def unassoc_weapon(request, gundam_id, weapon_id):
