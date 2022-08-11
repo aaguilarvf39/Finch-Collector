@@ -35,7 +35,7 @@ class Gundam(models.Model):
 
 # Add new Feeding model below Gundam model
 class Repairs(models.Model):
-  date = models.DateField('repair date')
+  date = models.DateField('repair Date')
   component = models.CharField(
     max_length=22,
     choices=COMPONENTS,

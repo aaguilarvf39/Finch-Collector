@@ -27,7 +27,7 @@ def gundams_detail(request, gundam_id):
 
 class GundamCreate(CreateView):
   model = Gundam
-  fields = '__all__'
+  fields = ['name', 'skill', 'description', 'year']
   success_url = '/gundams/'
 
 class GundamUpdate(UpdateView):
@@ -46,6 +46,15 @@ def add_repair(request, gundam_id):
     new_repair = form.save(commit=False)
     new_repair.gundam_id = gundam_id
     new_repair.save()
+  return redirect('detail', gundam_id=gundam_id)
+
+def assoc_weapon(request, gundam_id, weapon_id):
+  gundam = Gundam.objects.get(id=gundam_id)
+  Gundam.weapons.add(weapon_id)
+  return redirect('detail', gundam_id=gundam_id)
+
+def unassoc_weapon(request, gundam_id, weapon_id):
+  Gundam.objects.get(id=gundam_id).weapons.remove(weapon_id)
   return redirect('detail', gundam_id=gundam_id)
 
 class WeaponList(ListView):
